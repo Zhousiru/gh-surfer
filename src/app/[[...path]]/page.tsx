@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { path?: string[] } }) 
             </Link>
           )}
         </div>
-        <ListView path={decodeURI(params.path?.join('/') ?? '')} />
+        <ListView path={decodeURIComponent(params.path?.join('/') ?? '')} />
         <div className="text-center text-black/50 pb-8">Powered by gh-surfer</div>
       </div>
     </>

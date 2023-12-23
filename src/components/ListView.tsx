@@ -27,7 +27,7 @@ function ListEntry({
   return (
     <Link
       href={'/' + path}
-      prefetch={true}
+      prefetch={type === 'dir'} // Maybe we only prefetch dir pages?
       className="px-6 py-4 text-lg transition hover:bg-gray-50 flex flex-col gap-1"
     >
       <div>
@@ -40,10 +40,10 @@ function ListEntry({
 
 export async function ListView({ path }: { path: string }) {
   const client = useOctokit()
-  const resp = await client.request('GET /repos/{owner}/{repo}/contents/{path}', {
+  const resp = await client.rest.repos.getContent({
     owner: process.env.NEXT_PUBLIC_REPO.split('/')[0],
     repo: process.env.NEXT_PUBLIC_REPO.split('/')[1],
-    path: path,
+    path,
     headers: {
       'X-GitHub-Api-Version': '2022-11-28',
     },
