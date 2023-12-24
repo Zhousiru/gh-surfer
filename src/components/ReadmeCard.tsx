@@ -2,7 +2,6 @@ import { base64ToString } from '@/libs/base64'
 import { useOctokit } from '@/libs/ocotkit/client'
 import { isFile } from '@/libs/types/github'
 import { Document } from '@carbon/icons-react'
-import 'github-markdown-css'
 import { marked } from 'marked'
 
 export async function ReadmeCard({ path }: { path: string }) {
@@ -30,7 +29,7 @@ export async function ReadmeCard({ path }: { path: string }) {
         README.md
       </div>
       <div
-        className="p-8 prose max-w-none prose-img:m-0 markdown-body"
+        className="p-8 prose max-w-none prose-img:my-2 prose-h1:pb-1 prose-h1:border-b prose-h2:pb-1 prose-h2:border-b"
         dangerouslySetInnerHTML={{ __html: htmlData }}
       ></div>
     </div>
