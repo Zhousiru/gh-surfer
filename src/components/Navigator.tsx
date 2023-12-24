@@ -1,4 +1,5 @@
 import { ChevronRight, Home } from '@carbon/icons-react'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
@@ -13,9 +14,9 @@ function DirLink({ href, children }: { href: string; children: ReactNode }) {
   )
 }
 
-export function Navigator({ current }: { current: string[] }) {
+export function Navigator({ current, className }: { current: string[]; className?: string }) {
   return (
-    <div className="flex gap-1 p-2 items-center bg-gray-100 rounded-md">
+    <div className={clsx(className, 'flex gap-1 p-2 items-center bg-gray-100 rounded-md')}>
       <DirLink href="/e">
         <Home className="mx-2" />
       </DirLink>

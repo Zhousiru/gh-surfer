@@ -1,5 +1,4 @@
 import { DirCard } from '@/components/DirCard'
-import { Navigator } from '@/components/Navigator'
 import { ReadmeCard } from '@/components/ReadmeCard'
 import { useOctokit } from '@/libs/ocotkit/client'
 import { isDir } from '@/libs/types/github'
@@ -29,8 +28,6 @@ export default async function Page({ params }: { params: { path?: string[] } }) 
 
   return (
     <div className="flex flex-col gap-4">
-      <Navigator current={decodedPath} />
-
       <DirCard data={sortDirData(data)} />
 
       {readmeFilename && <ReadmeCard path={contactedPath + '/' + readmeFilename} />}
