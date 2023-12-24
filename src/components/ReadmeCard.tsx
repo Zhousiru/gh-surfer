@@ -1,5 +1,5 @@
-import { base64ToString } from '@/lib/base64'
-import { useOctokit } from '@/lib/ocotkit/client'
+import { base64ToString } from '@/libs/base64'
+import { useOctokit } from '@/libs/ocotkit/client'
 import { Document } from '@carbon/icons-react'
 import 'github-markdown-css'
 import { marked } from 'marked'

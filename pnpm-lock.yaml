@@ -8,6 +8,9 @@ dependencies:
   '@carbon/icons-react':
     specifier: ^11.33.0
     version: 11.33.0(react@18.2.0)
+  '@octokit/types':
+    specifier: ^12.4.0
+    version: 12.4.0
   github-markdown-css:
     specifier: ^5.5.0
     version: 5.5.0
