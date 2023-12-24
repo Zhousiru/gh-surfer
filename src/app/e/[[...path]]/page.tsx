@@ -2,11 +2,10 @@ import { DirCard } from '@/components/DirCard'
 import { ReadmeCard } from '@/components/ReadmeCard'
 import { useOctokit } from '@/libs/ocotkit/client'
 import { isDir } from '@/libs/types/github'
-import { sortDirData } from '@/libs/utils'
+import { decodePath, sortDirData } from '@/libs/utils'
 
 export default async function Page({ params }: { params: { path?: string[] } }) {
-  let decodedPath = (params.path ?? []).map((e) => decodeURIComponent(e))
-  let contactedPath = decodedPath.join('/')
+  let contactedPath = decodePath(params.path).join('/')
 
   const client = useOctokit()
   const resp = await client.rest.repos.getContent({

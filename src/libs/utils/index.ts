@@ -12,3 +12,7 @@ export function sortDirData(data: RepoContentDirData) {
       return a.name.localeCompare(b.name)
     })
 }
+
+export function decodePath(path: string[] | undefined) {
+  return (path ?? []).map((e) => decodeURIComponent(e))
+}
