@@ -1,5 +1,5 @@
 import { RepoContentDirData } from '@/libs/types/github'
-import { DocumentBlank, Folder, TableOfContents } from '@carbon/icons-react'
+import { DocumentBlank, Folder } from '@carbon/icons-react'
 import Link from 'next/link'
 
 function EntryIcon({ type }: { type: 'dir' | 'file' | 'submodule' | 'symlink' }) {
@@ -40,15 +40,9 @@ function ListEntry({
 export function DirCard({ data }: { data: RepoContentDirData }) {
   return (
     <div className="bg-white flex flex-col divide-y rounded-md border overflow-hidden">
-      <div className="px-4 py-2 text-gray-600 flex items-center gap-2 bg-gray-100">
-        <TableOfContents />
-        目录
-      </div>
-      <div className="flex flex-col divide-y">
-        {data.map((d) => (
-          <ListEntry key={d.path} name={d.name} path={d.path} type={d.type} />
-        ))}
-      </div>
+      {data.map((d) => (
+        <ListEntry key={d.path} name={d.name} path={d.path} type={d.type} />
+      ))}
     </div>
   )
 }
