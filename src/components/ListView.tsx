@@ -26,8 +26,7 @@ function ListEntry({
 }) {
   return (
     <Link
-      href={'/' + path}
-      prefetch={type === 'dir'} // Maybe we only prefetch dir pages?
+      href={'/e/' + path}
       className="px-6 py-4 text-lg transition hover:bg-gray-50 flex flex-col gap-1"
     >
       <div>
